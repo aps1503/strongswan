@@ -62,6 +62,38 @@ matrix:
       dist: precise
     - compiler: clang
       env: TEST=fuzzing MONOLITHIC=yes
+
+
+    - compiler: gcc
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      env: TEST=dist
+    - compiler: gcc
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      env: TEST=apidoc
+    - compiler: gcc
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      env: TEST=coverage
+    - compiler: gcc
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      env: TEST=win64 MONOLITHIC=yes
+    # this does not work on 14.04 due to a missing @4 decoration for
+    # TryAcquireSRWLockExclusive in MinGW 3.1.0
+    - compiler: gcc
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      env: TEST=win32 MONOLITHIC=yes
+      dist: precise
     - compiler: clang
-      os: osx
-      env: TEST=osx
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      env: TEST=fuzzing MONOLITHIC=yes
